@@ -12,4 +12,6 @@
     <string name="Actor4" translatable="false">Chris Hemsworth</string>
     <string name="Img" translatable="false">Image</string>
     <string name="film_age_limit" translatable="false">13+</string>
+    <string name="movie_list" translatable="false">Movie list</string>
+    <string name="timefilm1" translatable="false">137 min</string>
 </resources>
