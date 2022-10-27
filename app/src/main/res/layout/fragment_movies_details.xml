@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -8,7 +9,7 @@
     tools:context=".FragmentMoviesDetails">
 
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -50,14 +51,14 @@
             android:textColor="@color/text_main"
             android:textSize="36sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/FilmTegTxtView"
+            app:layout_constraintBottom_toTopOf="@+id/FilmTagTxtView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/FilmTegTxtView"
+            android:id="@+id/FilmTagTxtView"
             android:layout_width="0dp"
             android:layout_height="20dp"
             android:layout_marginStart="16dp"
@@ -77,12 +78,12 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="4dp"
-            android:tint="@color/pink"
             app:layout_constraintEnd_toStartOf="@+id/StarImgView2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/FilmTegTxtView"
+            app:layout_constraintTop_toBottomOf="@+id/FilmTagTxtView"
             app:srcCompat="@android:drawable/btn_star"
-            android:contentDescription="@string/Img"/>
+            android:contentDescription="@string/Img"
+            app:tint="@color/pink" />
 
         <ImageView
             android:id="@+id/StarImgView2"
@@ -91,12 +92,12 @@
             android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="4dp"
-            android:tint="@color/pink"
             app:layout_constraintEnd_toStartOf="@+id/StarImgView3"
             app:layout_constraintStart_toEndOf="@+id/StarImgView1"
-            app:layout_constraintTop_toBottomOf="@+id/FilmTegTxtView"
+            app:layout_constraintTop_toBottomOf="@+id/FilmTagTxtView"
             app:srcCompat="@android:drawable/btn_star"
-            android:contentDescription="@string/Img"/>
+            android:contentDescription="@string/Img"
+            app:tint="@color/pink" />
 
         <ImageView
             android:id="@+id/StarImgView3"
@@ -105,12 +106,12 @@
             android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="4dp"
-            android:tint="@color/pink"
             app:layout_constraintEnd_toStartOf="@+id/StarImgView4"
             app:layout_constraintStart_toEndOf="@+id/StarImgView2"
-            app:layout_constraintTop_toBottomOf="@+id/FilmTegTxtView"
+            app:layout_constraintTop_toBottomOf="@+id/FilmTagTxtView"
             app:srcCompat="@android:drawable/btn_star"
-            android:contentDescription="@string/Img"/>
+            android:contentDescription="@string/Img"
+            app:tint="@color/pink" />
 
         <ImageView
             android:id="@+id/StarImgView4"
@@ -119,12 +120,12 @@
             android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="4dp"
-            android:tint="@color/pink"
             app:layout_constraintEnd_toStartOf="@+id/StarImgView5"
             app:layout_constraintStart_toEndOf="@+id/StarImgView3"
-            app:layout_constraintTop_toBottomOf="@+id/FilmTegTxtView"
+            app:layout_constraintTop_toBottomOf="@+id/FilmTagTxtView"
             app:srcCompat="@android:drawable/btn_star"
-            android:contentDescription="@string/Img"/>
+            android:contentDescription="@string/Img"
+            app:tint="@color/pink" />
 
         <ImageView
             android:id="@+id/StarImgView5"
@@ -135,7 +136,7 @@
             android:layout_marginEnd="4dp"
             app:layout_constraintEnd_toStartOf="@+id/CountReviewTxtView"
             app:layout_constraintStart_toEndOf="@+id/StarImgView4"
-            app:layout_constraintTop_toBottomOf="@+id/FilmTegTxtView"
+            app:layout_constraintTop_toBottomOf="@+id/FilmTagTxtView"
             app:srcCompat="@android:drawable/btn_star"
             android:contentDescription="@string/Img"/>
 
@@ -149,7 +150,7 @@
             android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@+id/StorylineTxtView"
             app:layout_constraintStart_toEndOf="@+id/StarImgView5"
-            app:layout_constraintTop_toBottomOf="@+id/FilmTegTxtView"
+            app:layout_constraintTop_toBottomOf="@+id/FilmTagTxtView"
             tools:ignore="TextContrastCheck" />
 
         <TextView
@@ -191,122 +192,16 @@
             android:text="@string/film_cast"
             android:textColor="@color/text_main"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/ActorImgView1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/StorulineTextTxtView" />
+            app:layout_constraintTop_toBottomOf="@+id/StorulineTextTxtView"
+            app:layout_constraintBottom_toTopOf="@+id/RecyclerActor"/>
 
-        <ImageView
-            android:id="@+id/ActorImgView1"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="6dp"
-            app:layout_constraintBottom_toTopOf="@+id/ActorTxtView1"
-            app:layout_constraintEnd_toStartOf="@+id/ActorImgView2"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RecyclerActor"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/CastTxtView"
-            app:srcCompat="@drawable/robert_downey_jr_"
-            android:contentDescription="@string/Img"/>
-
-        <TextView
-            android:id="@+id/ActorTxtView1"
-            android:layout_width="80dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="4dp"
-            android:text="@string/Actor1"
-            android:textColor="@color/text_main"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/ActorTxtView2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ActorImgView1" />
-
-        <ImageView
-            android:id="@+id/ActorImgView2"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="6dp"
-            android:contentDescription="@string/Img"
-            app:layout_constraintBottom_toTopOf="@+id/ActorTxtView2"
-            app:layout_constraintEnd_toStartOf="@+id/ActorImgView3"
-            app:layout_constraintStart_toEndOf="@+id/ActorImgView1"
-            app:layout_constraintTop_toBottomOf="@+id/CastTxtView"
-            app:srcCompat="@drawable/chrisevans"
-            tools:ignore="ImageContrastCheck,ImageContrastCheck" />
-
-        <TextView
-            android:id="@+id/ActorTxtView2"
-            android:layout_width="80dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="4dp"
-            android:text="@string/Actor2"
-            android:textColor="@color/text_main"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/ActorTxtView3"
-            app:layout_constraintStart_toEndOf="@+id/ActorTxtView1"
-            app:layout_constraintTop_toBottomOf="@+id/ActorImgView2" />
-
-        <ImageView
-            android:id="@+id/ActorImgView3"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="6dp"
-            app:layout_constraintBottom_toTopOf="@+id/ActorTxtView3"
-            app:layout_constraintEnd_toStartOf="@+id/ActorImgView4"
-            app:layout_constraintStart_toEndOf="@+id/ActorImgView2"
-            app:layout_constraintTop_toBottomOf="@+id/CastTxtView"
-            app:srcCompat="@drawable/mark_ruffalo"
-            android:contentDescription="@string/Img"/>
-
-        <TextView
-            android:id="@+id/ActorTxtView3"
-            android:layout_width="80dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="4dp"
-            android:text="@string/Actor3"
-            android:textColor="@color/text_main"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/ActorTxtView4"
-            app:layout_constraintStart_toEndOf="@+id/ActorTxtView2"
-            app:layout_constraintTop_toBottomOf="@+id/ActorImgView3" />
-
-        <ImageView
-            android:id="@+id/ActorImgView4"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginBottom="6dp"
-            app:layout_constraintBottom_toTopOf="@+id/ActorTxtView4"
-            app:layout_constraintStart_toEndOf="@+id/ActorImgView3"
-            app:layout_constraintTop_toBottomOf="@+id/CastTxtView"
-            app:srcCompat="@drawable/chris_hemsworth"
-            android:contentDescription="@string/Img"/>
-
-        <TextView
-            android:id="@+id/ActorTxtView4"
-            android:layout_width="80dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="6dp"
-            android:text="@string/Actor4"
-            android:textColor="@color/text_main"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/ActorTxtView3"
-            app:layout_constraintTop_toBottomOf="@+id/ActorImgView4" />
-    </android.support.constraint.ConstraintLayout>
-</android.support.v4.widget.NestedScrollView>
+            app:layout_constraintTop_toBottomOf="@+id/CastTxtView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

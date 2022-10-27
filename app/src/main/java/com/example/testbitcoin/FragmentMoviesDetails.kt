@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class FragmentMoviesDetails : Fragment() {
 
@@ -13,6 +15,12 @@ class FragmentMoviesDetails : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_movies_details, container, false)
+        val view = inflater.inflate(R.layout.fragment_movies_details, container, false)
+        val list = view.findViewById<RecyclerView>(R.id.RecyclerActor)
+        val data = Datas().getDataActor()
+        val adapter = ActorAdapter(data, view.context)
+        list.adapter = adapter
+        list.layoutManager = LinearLayoutManager(context,RecyclerView.HORIZONTAL,false)
+        return view
     }
 }

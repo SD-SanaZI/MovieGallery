@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,200 +8,46 @@
     android:background="#000000"
     tools:context=".FragmentMovieList">
 
+    <ImageView
+        android:id="@+id/ImgMenu"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@string/Img"
+        app:layout_constraintEnd_toStartOf="@+id/MovieListTxt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/MovieListTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="55dp"
+        android:text="@string/movie_list"
+        android:textColor="@color/text_main"
+        app:layout_constraintStart_toEndOf="@+id/ImgMenu"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MovieListTxt">
 
-        <ImageView
-            android:id="@+id/ImgMenu"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="56dp"
-            android:layout_marginEnd="8dp"
-            android:contentDescription="@string/Img"
-            app:layout_constraintEnd_toStartOf="@+id/MovieListTxt"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/FilmList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/MovieListTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="55dp"
-            android:text="@string/movie_list"
-            android:textColor="@color/text_main"
-            app:layout_constraintStart_toEndOf="@+id/ImgMenu"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/FilmImg1"
-            android:layout_width="166dp"
-            android:layout_height="248dp"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="102dp"
-            android:scaleType="centerCrop"
-            android:contentDescription="@string/Img"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/avengers_endgame_main" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/FilmNameTxt1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/film_name"
-            android:textColor="@color/text_main"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/FilmImg1"
-            app:layout_constraintTop_toBottomOf="@+id/CountReviewTxtView" />
 
-        <TextView
-            android:id="@+id/FilmAgeLimitTxt1"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="12dp"
-            android:text="@string/film_age_limit"
-            android:background="@color/black"
-            android:textColor="@color/text_main"
-            android:textStyle="bold"
-            android:textSize="12sp"
-            android:gravity="center"
-            app:layout_constraintStart_toStartOf="@+id/FilmImg1"
-            app:layout_constraintTop_toTopOf="@+id/FilmImg1" />
-
-        <ImageView
-            android:id="@+id/LikeImg1"
-            android:layout_width="16dp"
-            android:layout_height="14dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="6dp"
-            android:src="@drawable/like"
-            android:contentDescription="@string/Img"
-            app:layout_constraintEnd_toEndOf="@+id/FilmImg1"
-            app:layout_constraintTop_toTopOf="@+id/FilmImg1" />
-
-        <TextView
-            android:id="@+id/FilmTegTxtView"
-            android:layout_width="0dp"
-            android:layout_height="12dp"
-            android:layout_marginTop="214dp"
-            android:layout_marginEnd="14dp"
-            android:layout_marginBottom="1dp"
-            android:background="@color/black"
-            android:text="@string/film_tag"
-            android:textColor="@color/pink"
-            android:textSize="8sp"
-            app:layout_constraintBottom_toTopOf="@id/CountReviewTxtView"
-            app:layout_constraintEnd_toEndOf="@+id/FilmImg1"
-            app:layout_constraintStart_toStartOf="@+id/FilmImg1"
-            app:layout_constraintTop_toTopOf="@+id/FilmImg1" />
-
-        <ImageView
-            android:id="@+id/StarImgView1"
-            android:layout_width="8dp"
-            android:layout_height="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="1dp"
-            android:contentDescription="@string/Img"
-            android:tint="@color/pink"
-            app:layout_constraintEnd_toStartOf="@+id/StarImgView2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/FilmTegTxtView"
-            app:srcCompat="@android:drawable/btn_star" />
-
-        <ImageView
-            android:id="@+id/StarImgView2"
-            android:layout_width="8dp"
-            android:layout_height="8dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="1dp"
-            android:contentDescription="@string/Img"
-            android:tint="@color/pink"
-            app:layout_constraintEnd_toStartOf="@+id/StarImgView3"
-            app:layout_constraintStart_toEndOf="@+id/StarImgView1"
-            app:layout_constraintTop_toBottomOf="@+id/FilmTegTxtView"
-            app:srcCompat="@android:drawable/btn_star" />
-
-        <ImageView
-            android:id="@+id/StarImgView3"
-            android:layout_width="8dp"
-            android:layout_height="8dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="1dp"
-            android:contentDescription="@string/Img"
-            android:tint="@color/pink"
-            app:layout_constraintEnd_toStartOf="@+id/StarImgView4"
-            app:layout_constraintStart_toEndOf="@+id/StarImgView2"
-            app:layout_constraintTop_toBottomOf="@+id/FilmTegTxtView"
-            app:srcCompat="@android:drawable/btn_star" />
-
-        <ImageView
-            android:id="@+id/StarImgView4"
-            android:layout_width="8dp"
-            android:layout_height="8dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="1dp"
-            android:contentDescription="@string/Img"
-            android:tint="@color/pink"
-            app:layout_constraintEnd_toStartOf="@+id/StarImgView5"
-            app:layout_constraintStart_toEndOf="@+id/StarImgView3"
-            app:layout_constraintTop_toBottomOf="@+id/FilmTegTxtView"
-            app:srcCompat="@android:drawable/btn_star" />
-
-        <ImageView
-            android:id="@+id/StarImgView5"
-            android:layout_width="8dp"
-            android:layout_height="8dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="3dp"
-            android:contentDescription="@string/Img"
-            app:layout_constraintEnd_toStartOf="@+id/CountReviewTxtView"
-            app:layout_constraintStart_toEndOf="@+id/StarImgView4"
-            app:layout_constraintTop_toBottomOf="@+id/FilmTegTxtView"
-            app:srcCompat="@android:drawable/btn_star" />
-
-        <TextView
-            android:id="@+id/CountReviewTxtView"
-            android:layout_width="wrap_content"
-            android:layout_height="12dp"
-            android:layout_marginStart="3dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="16dp"
-            android:background="@color/black"
-            android:text="@string/film_count_review"
-            android:textAllCaps="true"
-            android:textColor="@color/gray"
-            android:textSize="8sp"
-            app:layout_constraintBottom_toTopOf="@id/FilmNameTxt1"
-            app:layout_constraintStart_toEndOf="@+id/StarImgView5"
-            app:layout_constraintTop_toBottomOf="@+id/FilmTegTxtView"
-            tools:ignore="TextContrastCheck" />
-
-        <TextView
-            android:id="@+id/TimeTxt1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/timefilm1"
-            android:textAllCaps="true"
-            android:textColor="@color/gray"
-            android:textSize="8sp"
-            app:layout_constraintStart_toStartOf="@+id/FilmImg1"
-            app:layout_constraintTop_toBottomOf="@+id/FilmNameTxt1" />
-
-    </android.support.constraint.ConstraintLayout>
-</android.support.v4.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

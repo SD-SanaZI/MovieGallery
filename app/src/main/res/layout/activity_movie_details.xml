@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -44,14 +45,14 @@
         android:textColor="@color/text_main"
         android:textSize="36sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/FilmTegTxtView"
+        app:layout_constraintBottom_toTopOf="@+id/FilmTagTxtView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/FilmTegTxtView"
+        android:id="@+id/FilmTagTxtView"
         android:layout_width="0dp"
         android:layout_height="20dp"
         android:layout_marginStart="16dp"
@@ -71,12 +72,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
-        android:tint="@color/pink"
         app:layout_constraintEnd_toStartOf="@+id/StarImgView2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FilmTegTxtView"
+        app:layout_constraintTop_toBottomOf="@+id/FilmTagTxtView"
         app:srcCompat="@android:drawable/btn_star"
-        android:contentDescription="@string/Img"/>
+        android:contentDescription="@string/Img"
+        app:tint="@color/pink" />
 
     <ImageView
         android:id="@+id/StarImgView2"
@@ -85,12 +86,12 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
-        android:tint="@color/pink"
         app:layout_constraintEnd_toStartOf="@+id/StarImgView3"
         app:layout_constraintStart_toEndOf="@+id/StarImgView1"
-        app:layout_constraintTop_toBottomOf="@+id/FilmTegTxtView"
+        app:layout_constraintTop_toBottomOf="@+id/FilmTagTxtView"
         app:srcCompat="@android:drawable/btn_star"
-        android:contentDescription="@string/Img"/>
+        android:contentDescription="@string/Img"
+        app:tint="@color/pink" />
 
     <ImageView
         android:id="@+id/StarImgView3"
@@ -99,12 +100,12 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
-        android:tint="@color/pink"
         app:layout_constraintEnd_toStartOf="@+id/StarImgView4"
         app:layout_constraintStart_toEndOf="@+id/StarImgView2"
-        app:layout_constraintTop_toBottomOf="@+id/FilmTegTxtView"
+        app:layout_constraintTop_toBottomOf="@+id/FilmTagTxtView"
         app:srcCompat="@android:drawable/btn_star"
-        android:contentDescription="@string/Img"/>
+        android:contentDescription="@string/Img"
+        app:tint="@color/pink" />
 
     <ImageView
         android:id="@+id/StarImgView4"
@@ -113,12 +114,12 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
-        android:tint="@color/pink"
         app:layout_constraintEnd_toStartOf="@+id/StarImgView5"
         app:layout_constraintStart_toEndOf="@+id/StarImgView3"
-        app:layout_constraintTop_toBottomOf="@+id/FilmTegTxtView"
+        app:layout_constraintTop_toBottomOf="@+id/FilmTagTxtView"
         app:srcCompat="@android:drawable/btn_star"
-        android:contentDescription="@string/Img"/>
+        android:contentDescription="@string/Img"
+        app:tint="@color/pink" />
 
     <ImageView
         android:id="@+id/StarImgView5"
@@ -129,7 +130,7 @@
         android:layout_marginEnd="4dp"
         app:layout_constraintEnd_toStartOf="@+id/CountReviewTxtView"
         app:layout_constraintStart_toEndOf="@+id/StarImgView4"
-        app:layout_constraintTop_toBottomOf="@+id/FilmTegTxtView"
+        app:layout_constraintTop_toBottomOf="@+id/FilmTagTxtView"
         app:srcCompat="@android:drawable/btn_star"
         android:contentDescription="@string/Img"/>
 
@@ -143,7 +144,7 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/StorylineTxtView"
         app:layout_constraintStart_toEndOf="@+id/StarImgView5"
-        app:layout_constraintTop_toBottomOf="@+id/FilmTegTxtView"
+        app:layout_constraintTop_toBottomOf="@+id/FilmTagTxtView"
         tools:ignore="TextContrastCheck" />
 
     <TextView
@@ -302,5 +303,4 @@
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/ActorTxtView3"
         app:layout_constraintTop_toBottomOf="@+id/ActorImgView4" />
-
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

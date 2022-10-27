@@ -1,16 +1,28 @@
 package com.example.testbitcoin
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
 
-class MainActivity : AppCompatActivity() {
+interface FragmentClickListener{
+    fun openMovieDetailsClicked()
+}
+
+class MainActivity : AppCompatActivity(), FragmentClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportFragmentManager.beginTransaction()
-            .add(R.id.main_conteiner, FragmentMovieList())
-            .commit()
+        if(savedInstanceState == null){
+            supportFragmentManager.beginTransaction()
+                .addToBackStack(null)
+                .add(R.id.main_conteiner, FragmentMovieList())
+                .commit()
+        }
     }
 
+    override fun openMovieDetailsClicked() {
+        supportFragmentManager.beginTransaction()
+            .addToBackStack(null)
+            .add(R.id.main_conteiner, FragmentMoviesDetails())
+            .commit()
+    }
 }
