@@ -2,9 +2,11 @@ package com.example.testbitcoin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 
 interface FragmentClickListener{
-    fun openMovieDetailsClicked()
+    fun openMovieDetailsClicked(id: Int)
+    fun openFilmsListPage(page: Int)
 }
 
 class MainActivity : AppCompatActivity(), FragmentClickListener {
@@ -14,15 +16,23 @@ class MainActivity : AppCompatActivity(), FragmentClickListener {
         if(savedInstanceState == null){
             supportFragmentManager.beginTransaction()
                 .addToBackStack(null)
-                .add(R.id.main_conteiner, FragmentMovieList())
+                .add(R.id.main_conteiner, FragmentMovieList(1))
                 .commit()
         }
     }
 
-    override fun openMovieDetailsClicked() {
+    override fun openMovieDetailsClicked(id: Int) {
         supportFragmentManager.beginTransaction()
             .addToBackStack(null)
-            .add(R.id.main_conteiner, FragmentMoviesDetails())
+            .add(R.id.main_conteiner, FragmentMoviesDetails(id))
+            .commit()
+        Log.i("main", id.toString())
+    }
+
+    override fun openFilmsListPage(page: Int) {
+        supportFragmentManager.beginTransaction()
+            .addToBackStack(null)
+            .add(R.id.main_conteiner, FragmentMovieList(page))
             .commit()
     }
 }

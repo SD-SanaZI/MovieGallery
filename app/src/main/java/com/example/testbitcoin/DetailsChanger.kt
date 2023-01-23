@@ -15,11 +15,6 @@ class DetailsChanger(view: View, private val context: Context) {
     private val image: ImageView = view.findViewById(R.id.MaskImgView)
     private val countReview: TextView = view.findViewById(R.id.CountReviewTxtView)
     private val story: TextView = view.findViewById(R.id.StorulineTextTxtView)
-    private var fragmentClickListener: FragmentClickListener? = null
-    init {
-        if(context is FragmentClickListener)
-            fragmentClickListener = context
-    }
 
     fun bind(film: FilmData){
         name.text = film.name

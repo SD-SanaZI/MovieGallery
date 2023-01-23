@@ -2,6 +2,7 @@ package com.example.testbitcoin
 
 import android.content.Context
 import android.graphics.PorterDuff
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -31,7 +32,8 @@ class FilmViewHolder(view: View,private val context: Context):RecyclerView.ViewH
         ageLimit.text = film.age_limit
         image.setImageResource(film.image)
         image.setOnClickListener {
-            fragmentClickListener?.openMovieDetailsClicked()
+            Log.i("bind", film.id.toString())
+            fragmentClickListener?.openMovieDetailsClicked(film.id)
         }
         countReview.text = film.countReviews.toString() + " reviews"
         time.text = film.time.toString() + " min"
