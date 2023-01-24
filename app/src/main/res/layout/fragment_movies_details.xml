@@ -24,27 +24,39 @@
             app:srcCompat="@drawable/mask"
             android:contentDescription="@string/Img"/>
 
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="250dp"
+            android:background="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/MaskImgView"
+            app:layout_constraintVertical_bias="0.0" />
+
         <TextView
             android:id="@+id/AgeLimitTxtView"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="222dp"
+            android:layout_marginBottom="20dp"
             android:background="@color/black"
             android:gravity="center"
             android:text="@string/film_age_limit"
             android:textColor="@color/text_main"
             android:textSize="12sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toTopOf="@+id/group2"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/FilmNameTxtView"
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="254dp"
             android:layout_marginEnd="16dp"
             android:background="@color/black"
             android:text="@string/film_name"
@@ -55,7 +67,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/group2" />
 
         <TextView
             android:id="@+id/FilmTagTxtView"

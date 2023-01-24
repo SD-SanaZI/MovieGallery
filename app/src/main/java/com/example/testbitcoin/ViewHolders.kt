@@ -32,7 +32,6 @@ class FilmViewHolder(view: View,private val context: Context):RecyclerView.ViewH
         ageLimit.text = film.age_limit
         image.setImageResource(film.image)
         image.setOnClickListener {
-            Log.i("bind", film.id.toString())
             fragmentClickListener?.openMovieDetailsClicked(film.id)
         }
         countReview.text = film.countReviews.toString() + " reviews"

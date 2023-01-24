@@ -18,11 +18,10 @@ class FragmentMoviesDetails(val filmId: Int) : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_movies_details, container, false)
         val films = DetailsChanger(view,view.context)// проверить двойное вью
-        val filmdata = Datas().getDataFilm()
-        Log.i("details", filmId.toString())
         films.bind(Datas().getDataFilmById(filmId))
         val list = view.findViewById<RecyclerView>(R.id.RecyclerActor)
-        val data = Datas().getDataActor()
+        val actorIdList = Datas().getDataFilmById(filmId).actorIdList
+        val data = Datas().getActorListByIdList(actorIdList)
         val adapter = ActorAdapter(data, view.context)
         list.adapter = adapter
         list.layoutManager = LinearLayoutManager(context,RecyclerView.HORIZONTAL,false)

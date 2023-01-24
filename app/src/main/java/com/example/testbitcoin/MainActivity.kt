@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity(), FragmentClickListener {
             .addToBackStack(null)
             .add(R.id.main_conteiner, FragmentMoviesDetails(id))
             .commit()
-        Log.i("main", id.toString())
     }
 
     override fun openFilmsListPage(page: Int) {
