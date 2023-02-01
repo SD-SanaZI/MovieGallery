@@ -10,9 +10,21 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import android.util.Log
 
-class FragmentMovieList(val page:Int) : Fragment() {
+class FragmentMovieList() : Fragment() {
     private var fragmentClickListener: FragmentClickListener? = null
+    private var filmsOnPage = 4
+
+    companion object{
+        fun newInstanse(page:Int): FragmentMovieList{
+            val args = Bundle()
+            args.putInt("page", page)
+            val fragment = FragmentMovieList()
+            fragment.arguments = args
+            return fragment
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,12 +32,48 @@ class FragmentMovieList(val page:Int) : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_movie_list, container, false)
+        val page = arguments?.getInt("page") ?: 1
+        val db = DbHelper(view.context,null)
+        val filmNumber = db.filmSize()
+
+        /*
+        if(filmNumber == 0) {
+            val a = Datas().a()
+            val f = Datas().f()
+            a.forEach {
+                db.addActor(it.id, it.name, it.image)
+            }
+            f.forEach { fi ->
+                db.addFilm(
+                    fi.id,
+                    fi.name,
+                    fi.age_limit,
+                    fi.tag,
+                    fi.image,
+                    fi.countReviews,
+                    fi.time,
+                    fi.hasLike,
+                    fi.story
+                )
+                fi.actorIdList.forEach {
+                    db.addRelationship(fi.id, it)
+                }
+            }
+        }
+*/
 
         val list = view.findViewById<RecyclerView>(R.id.FilmList)
-        val data = Datas().getDataFilmPage(page)
+        val lastPage = filmNumber/filmsOnPage + 1
+        val lastFilmOnPage = if(page == lastPage) filmNumber - 1 else (page-1)*4+3
+        var data = listOf<FilmData>()
+        for(i in (page-1)*4..lastFilmOnPage)
+            data += db.getDataFilmById(i)
+
         val adapter = FilmAdapter(data, view.context)
         list.adapter = adapter
         list.layoutManager = LinearLayoutManager(view.context)
+
+
 
         val previousPage = view.findViewById<ImageView>(R.id.PreviousPage)
         val nextPage = view.findViewById<ImageView>(R.id.NextPage)
@@ -52,6 +100,6 @@ class FragmentMovieList(val page:Int) : Fragment() {
 
     override fun onDetach() {
         super.onDetach()
-        fragmentClickListener = null;
+        fragmentClickListener = null
     }
 }

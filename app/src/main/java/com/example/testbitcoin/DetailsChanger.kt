@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.widget.ImageViewCompat
 
-class DetailsChanger(view: View, private val context: Context) {
+class DetailsChanger(private  val view: View) {
     private val name: TextView = view.findViewById(R.id.FilmNameTxtView)
     private val tag: TextView = view.findViewById(R.id.FilmTagTxtView)
     private val ageLimit: TextView = view.findViewById(R.id.AgeLimitTxtView)
@@ -21,7 +21,7 @@ class DetailsChanger(view: View, private val context: Context) {
         tag.text = film.tag
         ageLimit.text = film.age_limit
         image.setImageResource(film.image)
-        countReview.text = film.countReviews.toString() + " reviews"
+        countReview.text = view.context.getString(R.string.film_count_review, 79)
         story.text = film.story
     }
 }

@@ -34,11 +34,14 @@ class FilmViewHolder(view: View,private val context: Context):RecyclerView.ViewH
         image.setOnClickListener {
             fragmentClickListener?.openMovieDetailsClicked(film.id)
         }
-        countReview.text = film.countReviews.toString() + " reviews"
-        time.text = film.time.toString() + " min"
+        countReview.text = context.getString(R.string.film_count_review, film.countReviews)
+        time.text = context.getString(R.string.timefilm1, film.time)
         if(film.hasLike) ImageViewCompat.setImageTintList(like, AppCompatResources.getColorStateList(context, R.color.pink))
         else ImageViewCompat.setImageTintMode(like, PorterDuff.Mode.SRC_IN)
-
+        like.setOnClickListener {
+            fragmentClickListener?.like(film.id)
+        }
+        Log.i("like", "id:" + film.id + " like:" + film.hasLike.toString())
     }
 }
 

@@ -10,7 +10,7 @@ data class FilmData(
     val image:Int,
     val countReviews:Int,
     val time:Int,
-    val hasLike:Boolean,
+    var hasLike:Boolean,
     val story:String,
     val actorIdList:List<Int>
 )
@@ -22,8 +22,8 @@ data class ActorData(
 
 
 class Datas {
-    val filmsOnPage = 4
-    val filmData: List<FilmData> = listOf(
+    private val filmsOnPage = 4
+    private val filmData: List<FilmData> = listOf(
         FilmData(
             0,"Мстители: Война бесконечности", "16+", "фантастика, боевик, приключения",
             R.drawable.avengers_endgame_main, 125, 149, false,
@@ -38,13 +38,13 @@ class Datas {
         ),
         FilmData(
             2,"Железный человек 2", "12+", "фантастика, боевик, приключения",
-            R.drawable.iron_man2, 110, 119, true,
+            R.drawable.iron_man2, 79, 119, true,
             "Тони Старк противостоит политикам, конкурентам и инженеру из России. Микки Рурк в роли суперзлодея Ивана Ванко",
             listOf(0,11,7,12,4,10)
         ),
         FilmData(
             3,"Тор", "12+", "фантастика, боевик, фэнтези, приключения",
-            R.drawable.thor, 110, 110, true,
+            R.drawable.thor, 23, 110, true,
             "Гордый воин Асгарда адаптируется к земной жизни. Крис Хемсворт в дебютном сольном фильме о супергерое Marvel",
             listOf(3,10,13,14,15,16)
         ),
@@ -134,7 +134,7 @@ class Datas {
         )
     )
 
-    val actorData: List<ActorData> = listOf(
+    private val actorData: List<ActorData> = listOf(
         ActorData(
             0,"Роберт Дауни Мл.", R.drawable.robert_downey_jr_),
         ActorData(
@@ -284,7 +284,17 @@ class Datas {
         return filmData.size/filmsOnPage + 1
     }
 
-    fun getDataFilm(): List<FilmData> {
+    fun likeFilm(id: Int){
+        Log.i("likeFilmBefore",  "" + filmData[id].hasLike+ " " + id)
+        filmData[id].hasLike = !filmData[id].hasLike
+        Log.i("likeFilmAfter", "" + filmData[id].hasLike)
+    }
+
+    fun a():List<ActorData>{
+        return actorData
+    }
+
+    fun f():List<FilmData>{
         return filmData
     }
 
@@ -301,20 +311,5 @@ class Datas {
             actorList += getActorById(it)
         }
         return actorList
-    }
-
-    fun getDataActor(): List<ActorData> {
-        return listOf(
-            ActorData(
-                0,"Robert Downey Jr.", R.drawable.robert_downey_jr_),
-            ActorData(
-                1,"Chris Evans", R.drawable.chrisevans),
-            ActorData(
-                2,"Mark Ruffalo", R.drawable.mark_ruffalo),
-            ActorData(
-                3,"Chris Hemsworth", R.drawable.chris_hemsworth),
-            ActorData(
-                4,"Jeff Bridges", R.drawable.jeff_bridges),
-        )
     }
 }
