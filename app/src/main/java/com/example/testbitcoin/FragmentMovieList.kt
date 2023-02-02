@@ -36,7 +36,6 @@ class FragmentMovieList() : Fragment() {
         val db = DbHelper(view.context,null)
         val filmNumber = db.filmSize()
 
-        /*
         if(filmNumber == 0) {
             val a = Datas().a()
             val f = Datas().f()
@@ -60,7 +59,6 @@ class FragmentMovieList() : Fragment() {
                 }
             }
         }
-*/
 
         val list = view.findViewById<RecyclerView>(R.id.FilmList)
         val lastPage = filmNumber/filmsOnPage + 1
@@ -73,8 +71,6 @@ class FragmentMovieList() : Fragment() {
         list.adapter = adapter
         list.layoutManager = LinearLayoutManager(view.context)
 
-
-
         val previousPage = view.findViewById<ImageView>(R.id.PreviousPage)
         val nextPage = view.findViewById<ImageView>(R.id.NextPage)
         view.findViewById<TextView>(R.id.CurrentPageView).text = page.toString()
@@ -86,7 +82,7 @@ class FragmentMovieList() : Fragment() {
         }
         if(page == 1)
             previousPage.setVisibility(View.INVISIBLE)
-        if(page == Datas().getLastPageNumber())
+        if(page == lastPage)
             nextPage.setVisibility(View.INVISIBLE)
 
         return view

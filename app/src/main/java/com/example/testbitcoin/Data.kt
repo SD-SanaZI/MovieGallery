@@ -263,53 +263,11 @@ class Datas {
             62,"Уинстон Дьюк", R.drawable.winston_duke),
     )
 
-    fun getDataFilmById(id: Int): FilmData{
-        if(id in 0..filmData.size)
-            return filmData[id]
-        Log.wtf("getDataFilmById", "out of range")
-        return filmData[0]
-    }
-
-    fun getDataFilmPage(page: Int): List<FilmData>{
-        if(page in 1..filmData.size/filmsOnPage + 1){
-            if(page * filmsOnPage > filmData.size)
-                return filmData.subList((page-1)*4,filmData.size)
-            return filmData.subList((page-1)*4,(page-1)*4+4)
-        }
-        Log.wtf("getDataFilmPage", "out of range")
-        return listOf(filmData[0])
-    }
-
-    fun getLastPageNumber(): Int{
-        return filmData.size/filmsOnPage + 1
-    }
-
-    fun likeFilm(id: Int){
-        Log.i("likeFilmBefore",  "" + filmData[id].hasLike+ " " + id)
-        filmData[id].hasLike = !filmData[id].hasLike
-        Log.i("likeFilmAfter", "" + filmData[id].hasLike)
-    }
-
     fun a():List<ActorData>{
         return actorData
     }
 
     fun f():List<FilmData>{
         return filmData
-    }
-
-    fun getActorById(id: Int): ActorData{
-        if (id in 0..actorData.size)
-            return actorData[id]
-        Log.wtf("getActorById", "out of range")
-        return  actorData[0]
-    }
-
-    fun getActorListByIdList(list:List<Int>): List<ActorData>{
-        var actorList = listOf<ActorData>()
-        list.forEach {
-            actorList += getActorById(it)
-        }
-        return actorList
     }
 }

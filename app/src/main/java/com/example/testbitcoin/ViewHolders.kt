@@ -10,8 +10,6 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.widget.ImageViewCompat
 import androidx.recyclerview.widget.RecyclerView
 
-//Добавить шаблонизацию
-
 class FilmViewHolder(view: View,private val context: Context):RecyclerView.ViewHolder(view) {
     private val name: TextView = itemView.findViewById(R.id.FilmNameTxt1)
     private val tag: TextView = itemView.findViewById(R.id.FilmTagTxtView)
